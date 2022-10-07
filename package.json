@@ -2,7 +2,7 @@
   "name": "gamejam",
   "version": "1.0.0",
   "description": "2D game for Gamejam",
-  "main": "main.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
