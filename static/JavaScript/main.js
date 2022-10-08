@@ -14,26 +14,42 @@ let ground = new Ground();
 ground.init();
 let player = new Player();
 player.init();
+let healthBar =  new HealthBar();
+healthBar.show();
 
 
-var obstaclesX = [400, 1000];
-let obs1 = new Obstacle(400);
-let obs2 = new Obstacle(800);
-
-obs2.init();
-obs1.init()
+var obstaclesXPos = [400, 1000, 1400];
+var obstacles = []
+for(let obs = 0; obs < obstaclesXPos.length; obs ++){
+    obstacle = new Obstacle(obstaclesXPos[obs]);
+    obstacle.init()
+    obstacles.push(obstacle);
+}
 
 function animate(){
     requestAnimationFrame(animate);
     player.move();
     player.allowJump = SAT.collides(player.body, ground.body).collided;
 
+
+
+    for(let obs = 0; obs < obstaclesXPos.length; obs ++){
+        player.allowJump = SAT.collides(player.body, obstacles[obs].body).collided || player.allowJump;
+    }
+
+    removeProjectiles = []
     for(let i = 0; i < player.projectiles.length; i++){
 
         player.projectiles[i].move();
+        player.projectiles[i].checkCollisionObstacle(i);
 
     }
-    frame += 1;
+    for(let rp = 0; rp < removeProjectiles.length; rp++){
+        player.projectiles.splice(removeProjectiles[rp]);
+    }
+    console.log(player.projectiles.length);
+
+    //frame += 1;
 
 }
 
@@ -45,6 +61,8 @@ document.addEventListener('keydown', function(event){
     if(event.key === 'a') player.allowMoveLeft = true;
     if(event.key === 's') player.shoot();
     if(event.key === 'd') player.allowMoveRight = true;
+    if(event.key === 'c') player.changeHealth(10);
+
 } );
 
 document.addEventListener('keyup', function(event){

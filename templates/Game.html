@@ -10,10 +10,12 @@
 
 <script>
     var bgImg = "{{url_for('static', filename='Images/background.jpg')}}";
-    var groundImg = "{{url_for('static', filename='Images/ground.jpg')}}";
+    var groundImg = "{{url_for('static', filename='Images/black_ground.png')}}";
+
     var playerImg = "{{url_for('static', filename='Images/player.png')}}";
-    var cactusImg = "{{url_for('static', filename='Images/cactus.png')}}";
+    var spikesImg = "{{url_for('static', filename='Images/spikes.png')}}";
     var fireballImg = "{{url_for('static', filename='Images/fireball.png')}}";
+    var heartImg = "{{url_for('static', filename='Images/heart.png')}}";
 
 </script>
 
@@ -21,6 +23,7 @@
 <script src="{{ url_for('static', filename='/JavaScript/Projectile.js') }}"> </script>
 <script src="{{ url_for('static', filename='/JavaScript/Obstacle.js') }}"> </script>
 <script src="{{ url_for('static', filename='/JavaScript/Ground.js') }}"> </script>
+<script src="{{ url_for('static', filename='/JavaScript/HealthBar.js') }}"> </script>
 <script src="{{ url_for('static', filename='/JavaScript/Player.js') }}"> </script>
 <script src="{{ url_for('static', filename='/JavaScript/main.js') }}"> </script>
 

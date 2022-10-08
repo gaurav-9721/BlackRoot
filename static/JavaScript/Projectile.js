@@ -8,6 +8,7 @@ class Projectile{
 
         this.body = Bodies.rectangle(this.x, this.y, this.width, this.height)
         this.speed = 10;
+        this.direction = player.direction;
 
     }
 
@@ -18,23 +19,11 @@ class Projectile{
         sprite.texture = fireballImg;
         sprite.xScale = 0.1;
         sprite.yScale = 0.1;
-
-        // Body.setVelocity(this.body, {
-        //   x: 10,
-        //   y: 0
-        // })
-        // var gravity = engine.world.gravity;
-        //
-        //
-        // Body.applyForce(this.body, this.body.position, {
-        //     x: gravity.x * gravity.scale * this.body.mass,
-        //     y: -gravity.y * gravity.scale * this.body.mass
-        // });
     }
 
     move(){
-        console.log(this.body.position.x);
-        Body.set(this.body, "position", {x: this.body.position.x  + this.speed, y: this.y});
+        //console.log(this.body.position.x);
+        Body.set(this.body, "position", {x: this.body.position.x  + (this.speed*this.direction), y: this.y});
 
     }
 
@@ -44,6 +33,19 @@ class Projectile{
 
     removeBody(){
         World.remove(engine.world, this.body);
+    }
+
+    checkCollisionObstacle(i){
+        for(let obs = 0; obs < obstaclesXPos.length; obs ++){
+            if (SAT.collides(this.body, obstacles[obs].body).collided){
+                this.removeBody();
+                removeProjectiles.push(i);
+            }
+        }
+    }
+
+    checkOutOfBounds(i){
+
     }
 
     init(){

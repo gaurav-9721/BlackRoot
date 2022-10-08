@@ -15,7 +15,7 @@ class Ground{
         let sprite = this.body.render.sprite
         sprite.texture = groundImg;
         sprite.xScale = 2;
-        sprite.yScale = 0.259;
+        sprite.yScale = 1;
         this.body.friction = 3;
     }
 

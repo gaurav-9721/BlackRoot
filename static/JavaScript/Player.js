@@ -10,8 +10,8 @@ class Player{
         this.allowMoveLeft = false;
         this.allowMoveRight = false;
         this.allowJump = false;
-        this.direction = -1;
-
+        this.direction = 1;
+        this.health = 10;
         this.projectiles = [];
     }
 
@@ -45,6 +45,12 @@ class Player{
         })
         }
 
+
+    }
+
+    changeHealth(val){
+        this.health -= 1;
+        healthBar.removeHeart();
 
     }
 
