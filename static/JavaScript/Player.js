@@ -14,7 +14,12 @@ class Player{
     }
 
     setProperties(){
-        this.body.render.fillStyle = 'yellow';
+       // this.body.render.fillStyle = 'yellow';
+        let sprite = this.body.render.sprite
+        sprite.texture = playerImg;
+        sprite.xScale = 0.4;
+        sprite.yScale = 0.4;
+        this.body.friction = 3;
     }
 
     addBody(){

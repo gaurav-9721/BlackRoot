@@ -11,7 +11,12 @@ class Ground{
 
     setProperties(){
         this.body.isStatic = true;
-        this.body.render.fillStyle = 'green';
+        //this.body.render.fillStyle = 'green';
+        let sprite = this.body.render.sprite
+        sprite.texture = groundImg;
+        sprite.xScale = 2;
+        sprite.yScale = 0.259;
+        this.body.friction = 3;
     }
 
     addBody(){

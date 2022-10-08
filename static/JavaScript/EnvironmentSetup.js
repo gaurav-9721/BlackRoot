@@ -25,7 +25,7 @@ var render = Render.create({
                     width: windowWidth,
                     height: windowHeight,
                     wireframes: false,
-                    //background: backgroundImage,
+                    background: bgImg,
                     frictionAir: 0
                 },
 

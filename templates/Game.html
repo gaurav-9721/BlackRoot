@@ -8,6 +8,13 @@
 </head>
 <body>
 
+<script>
+    var bgImg = "{{url_for('static', filename='Images/background.jpg')}}";
+    var groundImg = "{{url_for('static', filename='Images/ground.jpg')}}";
+    var playerImg = "{{url_for('static', filename='Images/player.png')}}";
+
+</script>
+
 <script src="{{ url_for('static', filename='/JavaScript/EnvironmentSetup.js') }}"> </script>
 <script src="{{ url_for('static', filename='/JavaScript/Ground.js') }}"> </script>
 <script src="{{ url_for('static', filename='/JavaScript/Player.js') }}"> </script>

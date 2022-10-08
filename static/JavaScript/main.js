@@ -9,6 +9,7 @@ let mouseConstraint = MouseConstraint.create(engine, {
 render.mouse = mouse;
 
 
+
 let ground = new Ground();
 ground.init();
 let player = new Player();
