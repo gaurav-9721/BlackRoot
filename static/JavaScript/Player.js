@@ -10,6 +10,9 @@ class Player{
         this.allowMoveLeft = false;
         this.allowMoveRight = false;
         this.allowJump = false;
+        this.direction = -1;
+
+        this.projectiles = [];
     }
 
     setProperties(){
@@ -49,6 +52,12 @@ class Player{
     init(){
         this.setProperties();
         this.addBody();
+    }
+
+    shoot(){
+        var projectile = new Projectile();
+        projectile.init();
+        this.projectiles.push(projectile);
     }
 
 

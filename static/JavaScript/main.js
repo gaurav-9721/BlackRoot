@@ -7,7 +7,7 @@ let mouseConstraint = MouseConstraint.create(engine, {
   }
 });
 render.mouse = mouse;
-
+let frame = 0;
 
 
 let ground = new Ground();
@@ -27,6 +27,14 @@ function animate(){
     requestAnimationFrame(animate);
     player.move();
     player.allowJump = SAT.collides(player.body, ground.body).collided;
+
+    for(let i = 0; i < player.projectiles.length; i++){
+
+        player.projectiles[i].move();
+
+    }
+    frame += 1;
+
 }
 
 
@@ -35,7 +43,7 @@ function animate(){
 document.addEventListener('keydown', function(event){
     if(event.key === 'w') player.jump() ;
     if(event.key === 'a') player.allowMoveLeft = true;
-    //if(event.key === 's') alert('S');
+    if(event.key === 's') player.shoot();
     if(event.key === 'd') player.allowMoveRight = true;
 } );
 
@@ -46,7 +54,13 @@ document.addEventListener('keyup', function(event){
     if(event.key === 'd') player.allowMoveRight = false;
 } );
 
-animate();
+
+document.addEventListener('keypress', function(event){
+
+
+} );
+
+setTimeout(animate, 100);
 
 World.add(engine.world, [mouseConstraint]);
 Engine.update(engine);

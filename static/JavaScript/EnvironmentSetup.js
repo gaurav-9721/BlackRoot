@@ -26,7 +26,7 @@ var render = Render.create({
                     height: windowHeight,
                     wireframes: false,
                     background: bgImg,
-                    frictionAir: 0
+                    frictionAir: 0,
                 },
 
 });
