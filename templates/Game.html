@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <title> Game </title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.js"></script>
 </head>
 <body>
-<script src="{{ url_for('static', filename='main.js') }}"> </script>
+
+<script src="{{ url_for('static', filename='/JavaScript/EnvironmentSetup.js') }}"> </script>
+<script src="{{ url_for('static', filename='/JavaScript/Ground.js') }}"> </script>
+<script src="{{ url_for('static', filename='/JavaScript/Player.js') }}"> </script>
+<script src="{{ url_for('static', filename='/JavaScript/main.js') }}"> </script>
+
 </body>
 </html>
