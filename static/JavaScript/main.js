@@ -16,6 +16,13 @@ let player = new Player();
 player.init();
 
 
+var obstaclesX = [400, 1000];
+let obs1 = new Obstacle(400);
+let obs2 = new Obstacle(800);
+
+obs2.init();
+obs1.init()
+
 function animate(){
     requestAnimationFrame(animate);
     player.move();

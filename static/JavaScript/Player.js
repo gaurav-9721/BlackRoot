@@ -1,11 +1,10 @@
 class Player{
     constructor() {
         this.startX = 100;
-        this.width = windowWidth/16;
+        this.width = windowWidth/20;
         this.height = windowHeight/6;
         this.startY = ground.getPlayerPos();
-        this.body = Bodies.rectangle(this.startX, this.startY, this.width, this.height);
-
+        this.body = Bodies.rectangle(this.startX, this.startY, this.width, this.height, {inertia: Infinity});
 
         this.speed = 5;
         this.allowMoveLeft = false;
@@ -19,7 +18,8 @@ class Player{
         sprite.texture = playerImg;
         sprite.xScale = 0.4;
         sprite.yScale = 0.4;
-        this.body.friction = 3;
+
+
     }
 
     addBody(){
