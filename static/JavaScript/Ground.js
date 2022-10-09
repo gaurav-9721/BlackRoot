@@ -1,9 +1,9 @@
 class Ground{
-    constructor() {
-        this.x = 0;
+    constructor(x) {
         this.depth = 50;
         this.y = windowHeight-20;
-        this.width = windowWidth;
+        this.width = 300;
+        this.x = x;
         this.height = this.depth;
 
         this.body = Bodies.rectangle(this.x, this.y, 2*this.width, this.height);
@@ -14,7 +14,7 @@ class Ground{
         //this.body.render.fillStyle = 'green';
         let sprite = this.body.render.sprite
         sprite.texture = groundImg;
-        sprite.xScale = 2;
+        sprite.xScale = 1;
         sprite.yScale = 1;
         this.body.friction = 3;
     }

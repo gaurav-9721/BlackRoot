@@ -1,9 +1,9 @@
 class Player{
     constructor() {
-        this.startX = 100;
+        this.startX = 0;
         this.width = windowWidth/20;
         this.height = windowHeight/6;
-        this.startY = ground.getPlayerPos();
+        this.startY = grounds[0].getPlayerPos();
         this.body = Bodies.rectangle(this.startX, this.startY, this.width, this.height, {inertia: Infinity});
 
         this.speed = 5;
@@ -19,9 +19,8 @@ class Player{
        // this.body.render.fillStyle = 'yellow';
         let sprite = this.body.render.sprite
         sprite.texture = playerImg;
-        sprite.xScale = 0.4;
-        sprite.yScale = 0.4;
-
+        sprite.xScale = 0.3;
+        sprite.yScale = 0.3;
 
     }
 
@@ -30,11 +29,16 @@ class Player{
     }
 
     move(){
-        if (this.allowMoveLeft)
-        Body.set(this.body, "position", {x: this.body.position.x  - this.speed, y: this.body.position.y});
+        let ppos = this.body.position.x ;
+        if (this.allowMoveLeft){
+            Body.set(this.body, "position", {x: this.body.position.x  - this.speed, y: this.body.position.y});
+            //Body.set(healthBar.body, "position", {x: ppos - healthBar.body.position.x, y: healthBar.body.position.y});
+        }
 
-        if (this.allowMoveRight)
-        Body.set(this.body, "position", {x: this.body.position.x  + this.speed, y: this.body.position.y});
+        if (this.allowMoveRight){
+            Body.set(this.body, "position", {x: this.body.position.x + this.speed, y: this.body.position.y});
+            //Body.set(healthBar.body, "position", {x: ppos - healthBar.body.position.x, y: healthBar.body.position.y});
+        }
     }
 
     jump(){
@@ -44,8 +48,6 @@ class Player{
           y: -14
         })
         }
-
-
     }
 
     changeHealth(){

@@ -1,6 +1,6 @@
 class HealthBar{
     constructor() {
-        this.x = player.startX + 80;
+        this.x = player.startX - 60;
         this.y = 40;
         this.width = 400
         this.height = 40

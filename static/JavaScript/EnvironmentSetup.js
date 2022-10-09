@@ -11,9 +11,10 @@ var Engine = Matter.Engine,
     Constraint = Matter.Constraint,
     MouseConstraint = Matter.MouseConstraint,
     Mouse = Matter.Mouse,
-    Composite = Matter.Composite;
-    Collision = Matter.Collision;
-    SAT = Matter.SAT;
+    Composite = Matter.Composite,
+    Collision = Matter.Collision,
+    SAT = Matter.SAT,
+    Bounds = Matter.Bounds;
 
 var engine = Engine.create();
 engine.gravity.scale = 0.002;
@@ -25,13 +26,11 @@ var render = Render.create({
                 options: {
                     width: windowWidth,
                     height: windowHeight,
-                    wireframes: true,
+                    wireframes: false,
                     background: bgImg,
                     frictionAir: 0,
-
+                    hasBounds: true
 
                 },
 
 });
-
-
