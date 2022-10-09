@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title> Game </title>
+    <title>Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/CSS/styles.css') }}">
 </head>
 <body>
+    <div class="main overlay">
+        <h1 class = "name">Okabe No Mori</h1>
+        <div class="start">
+            <a href="{{ url_for('launch_game') }}">
+            <button type="button" class="btn btn-large" >
+                 Start Game </button></a>
+        </div>
 
-<a href="{{ url_for('launch_game') }}"> Launch Game </a>
+        <div class="mechanics">
+            <div class="controls">
+                <h2>Controls</h2>
+                <p> <img src="{{ url_for('static', filename='/Images/D.png') }}" > D - Forward</p>
+                <p> <img src="{{ url_for('static', filename='/Images/A.png') }}"> A - Backward</p>
+                <p> <img src="{{ url_for('static', filename='/Images/W.png') }}"> W - Jump</p>
+                <p> <img src="{{ url_for('static', filename='/Images/Space.png') }}"> Space - Shoot</p>
+            </div>
+
+            <div class="how-to-play">
+                <h2>How To Play</h2>
+                <p>Avoid Spikes</p>
+                <p>Shoot to damage</p>
+                <p>Kill enemies to progress</p>
+                <p>Placeholder1</p>
+                <p>Placeholder2</p>
+                <p>Placeholder3</p>
+
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

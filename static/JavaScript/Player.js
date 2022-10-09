@@ -48,9 +48,9 @@ class Player{
 
     }
 
-    changeHealth(val){
+    changeHealth(){
         this.health -= 1;
-        healthBar.removeHeart();
+        healthBar.changeHealth(this.health);
 
     }
 

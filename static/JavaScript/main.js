@@ -1,3 +1,7 @@
+function print(str){
+    console.log(str);
+}
+
 
 let mouse = Mouse.create(render.canvas);
 let mouseConstraint = MouseConstraint.create(engine, {
@@ -10,12 +14,12 @@ render.mouse = mouse;
 let frame = 0;
 
 
-let ground = new Ground();
+var ground = new Ground();
 ground.init();
-let player = new Player();
+var player = new Player();
 player.init();
-let healthBar =  new HealthBar();
-healthBar.show();
+var healthBar =  new HealthBar();
+healthBar.init();
 
 
 var obstaclesXPos = [400, 1000, 1400];
@@ -45,9 +49,11 @@ function animate(){
 
     }
     for(let rp = 0; rp < removeProjectiles.length; rp++){
+        player.projectiles[removeProjectiles[rp]].removeBody();
         player.projectiles.splice(removeProjectiles[rp]);
+
     }
-    console.log(player.projectiles.length);
+    //console.log(player.projectiles.length);
 
     //frame += 1;
 
@@ -58,16 +64,24 @@ function animate(){
 
 document.addEventListener('keydown', function(event){
     if(event.key === 'w') player.jump() ;
-    if(event.key === 'a') player.allowMoveLeft = true;
+    if(event.key === 'a') {
+        player.allowMoveLeft = true;
+        player.direction = -1
+    }
     if(event.key === 's') player.shoot();
-    if(event.key === 'd') player.allowMoveRight = true;
-    if(event.key === 'c') player.changeHealth(10);
+    if(event.key === 'd') {
+        player.allowMoveRight = true;
+        player.direction = 1;
+    }
+    if(event.key === 'c') player.changeHealth();
 
 } );
 
 document.addEventListener('keyup', function(event){
     if(event.key === 'w') ;
-    if(event.key === 'a') player.allowMoveLeft = false;
+    if(event.key === 'a') {
+        player.allowMoveLeft = false;
+    }
     //if(event.key === 's') alert('S');
     if(event.key === 'd') player.allowMoveRight = false;
 } );
@@ -78,7 +92,11 @@ document.addEventListener('keypress', function(event){
 
 } );
 
-setTimeout(animate, 100);
+animate();
+Render.lookAt(render, obstacles[0].body,{
+  x: windowWidth+100,
+  y: 700
+});
 
 World.add(engine.world, [mouseConstraint]);
 Engine.update(engine);

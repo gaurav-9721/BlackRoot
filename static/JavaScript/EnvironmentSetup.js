@@ -17,6 +17,7 @@ var Engine = Matter.Engine,
 
 var engine = Engine.create();
 engine.gravity.scale = 0.002;
+
 var render = Render.create({
                 element: document.body,
                 engine: engine,
@@ -24,9 +25,13 @@ var render = Render.create({
                 options: {
                     width: windowWidth,
                     height: windowHeight,
-                    wireframes: false,
+                    wireframes: true,
                     background: bgImg,
                     frictionAir: 0,
+
+
                 },
 
 });
+
+

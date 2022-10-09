@@ -1,13 +1,15 @@
 class Projectile{
     constructor() {
 
-        this.x = player.body.position.x + 50;
+        this.x = player.body.position.x + (100*player.direction);
         this.y = player.body.position.y;
+        this.startx = this.x;
         this.width = player.width/2;
         this.height = player.height/3;
 
+
         this.body = Bodies.rectangle(this.x, this.y, this.width, this.height)
-        this.speed = 10;
+        this.speed = 20;
         this.direction = player.direction;
 
     }
@@ -39,17 +41,18 @@ class Projectile{
         for(let obs = 0; obs < obstaclesXPos.length; obs ++){
             if (SAT.collides(this.body, obstacles[obs].body).collided){
                 this.removeBody();
+
                 removeProjectiles.push(i);
             }
+            // if(this.body.position.x > (this.startx+800) || this.body.position.x < (this.startx-500)){
+            //     removeProjectiles.push(i);
+            // }
         }
-    }
-
-    checkOutOfBounds(i){
-
     }
 
     init(){
         this.setProperties();
         this.addBody();
+
     }
 }

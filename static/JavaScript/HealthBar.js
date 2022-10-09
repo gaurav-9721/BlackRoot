@@ -1,54 +1,32 @@
-class Heart{
-    constructor(x) {
-        this.x = x;
-        this.y = 30;
-        this.width = 30;
-        this.height = 30;
+class HealthBar{
+    constructor() {
+        this.x = player.startX + 80;
+        this.y = 40;
+        this.width = 400
+        this.height = 40
+        this.img = [health1Img, health2Img, health3Img, health4Img, health5Img, health6Img, health7Img, health8Img, health9Img, health10Img,]
         this.body = Bodies.rectangle(this.x, this.y, this.width, this.height);
     }
 
     setProperties(){
         this.body.isStatic = true;
         let sprite = this.body.render.sprite
-        sprite.texture = heartImg;
-        sprite.xScale = 0.4;
-        sprite.yScale = 0.4;
-        this.body.friction = 3;
+        sprite.texture = health10Img;
+        sprite.xScale = 0.7;
+        sprite.yScale = 0.8;
     }
 
     addBody(){
-        World.add(engine.world, this.body);
+        World.add(engine.world, this.body)
     }
-    removeBody(){
-        World.remove(engine.world, this.body);
+
+    changeHealth(health){
+        this.body.render.sprite.texture = this.img[health-1]
     }
 
     init(){
         this.setProperties();
         this.addBody();
-    }
-}
-
-class HealthBar{
-    constructor() {
-        this.x = 30;
-        this.y = 50;
-        this.health = []
-
-        this.no_of_hearts = player.health;
-        for(let h = 0; h < this.no_of_hearts; h++){
-            this.health.push(new Heart(40 + h*35));
-        }
-    }
-
-    show(){
-        for(let h = 0; h < this.no_of_hearts; h++){
-            this.health[h].init();
-        }
-    }
-
-    removeHeart(){
-        this.no_of_hearts -= 1;
-
+        this.changeHealth(10);
     }
 }
