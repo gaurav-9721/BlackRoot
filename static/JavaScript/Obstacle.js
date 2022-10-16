@@ -13,7 +13,7 @@ class Obstacle{
         //this.body.render.fillStyle = 'green';
         let sprite = this.body.render.sprite
         sprite.texture = spikesImg;
-        sprite.xScale = 0.8;
+        sprite.xScale = 1.1;
         sprite.yScale = 1;
         this.body.friction = 3;
     }

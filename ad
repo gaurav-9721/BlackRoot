@@ -1,0 +1,89 @@
+[33mcommit 454186e11f6ed27ea5b5e85be2ff83ee53314f5d[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: gaurav-9721 <vermagourav2001@gmail.com>
+Date:   Sun Oct 9 20:23:50 2022 +0530
+
+    Added ground segments.
+
+[33mcommit 44d35469cb2bba49b8447a07c5919dd6ca36debb[m
+Author: gaurav-9721 <vermagourav2001@gmail.com>
+Date:   Sun Oct 9 15:03:03 2022 +0530
+
+     Added dashboard page
+
+[33mcommit 8273a86b6a61c23ff24a9ae306d8a44bab0042d6[m
+Author: gaurav-9721 <vermagourav2001@gmail.com>
+Date:   Sun Oct 9 00:18:41 2022 +0530
+
+    Added health bar
+
+[33mcommit 1f416c386279c586c23ad77bb03c474ce3301ce5[m
+Author: gaurav-9721 <vermagourav2001@gmail.com>
+Date:   Sat Oct 8 20:45:02 2022 +0530
+
+    Added projectiles
+
+[33mcommit 1765d3b6ce0aab2dc7c7e635a83eaa20c327d63e[m
+Author: gaurav-9721 <vermagourav2001@gmail.com>
+Date:   Sat Oct 8 14:37:43 2022 +0530
+
+    Added Obstacles
+
+[33mcommit 8ae1997bcc01e5d105380879610f0be149ec11e8[m
+Author: gaurav-9721 <vermagourav2001@gmail.com>
+Date:   Sat Oct 8 13:31:58 2022 +0530
+
+    Added images
+
+[33mcommit 0409c7a5a7f36b0f053f5005275ad4e63632e78b[m
+Author: gaurav-9721 <vermagourav2001@gmail.com>
+Date:   Sat Oct 8 13:07:27 2022 +0530
+
+    Added Movement Features
+
+[33mcommit c98534b6934803455d5a72b7b698c25ab2883d1e[m
+Author: gaurav-9721 <vermagourav2001@gmail.com>
+Date:   Sat Oct 8 01:08:11 2022 +0530
+
+    Init Game
+
+[33mcommit f47ea8fd9464b035117f19c63b05055ee0b90873[m
+Author: gaurav-9721 <vermagourav2001@gmail.com>
+Date:   Sat Oct 8 00:58:16 2022 +0530
+
+    Added launch page.
+
+[33mcommit 4098d1114526fd8f15c0b4aa2ec7eb9bf642d5af[m
+Author: gaurav-9721 <vermagourav2001@gmail.com>
+Date:   Sat Oct 8 00:43:36 2022 +0530
+
+    Added requirements.txt
+
+[33mcommit 93e3c4c11430b266f2539921555c9c6d7d195ce9[m
+Author: gaurav-9721 <vermagourav2001@gmail.com>
+Date:   Sat Oct 8 00:34:03 2022 +0530
+
+    Added Procfile
+
+[33mcommit 784886a57798df5dbe43c327172cb4b0f6c2edc4[m
+Author: gaurav-9721 <vermagourav2001@gmail.com>
+Date:   Sat Oct 8 00:30:07 2022 +0530
+
+    Changed to Flask server.
+
+[33mcommit 660dc00b8ba64ee9e377eec5b97e52e7f87dd6aa[m
+Author: gaurav-9721 <vermagourav2001@gmail.com>
+Date:   Fri Oct 7 23:12:36 2022 +0530
+
+    Changed entry point to index.html.
+
+[33mcommit ccf1af22df1ce475c70e06462b11804f69b2035d[m
+Author: gaurav-9721 <vermagourav2001@gmail.com>
+Date:   Fri Oct 7 23:08:37 2022 +0530
+
+    Added package.json file.
+
+[33mcommit 9ed3468e0859127353a65723fdd4705eb719a885[m
+Author: Gaurav <vermagourav2001@gmail.com>
+Date:   Fri Oct 7 22:55:07 2022 +0530
+
+    Iniitialised game files.

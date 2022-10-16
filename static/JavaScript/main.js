@@ -60,22 +60,22 @@ function animate(){
         player.allowJump = SAT.collides(player.body, obstacles[obs].body).collided || player.allowJump;
     }
 
-    removeProjectiles = []
-    for(let i = 0; i < player.projectiles.length; i++){
+    // removeProjectiles = []
+    player.projectiles.forEach (function(value) {
+      value.move();
+      value.checkCollisionObstacle();
 
-        player.projectiles[i].move();
-        player.projectiles[i].checkCollisionObstacle(i);
+    })
+    // for(let rp = 0; rp < removeProjectiles.length; rp++){
+    //     if (player.projectiles[removeProjectiles[rp]].frame < 100) player.projectiles[removeProjectiles[rp]].frame += 1;
+    //     else{
+    //         //player.projectiles[removeProjectiles[rp]].removeBody();
+    //         player.projectiles.splice(removeProjectiles[rp]);
+    //     }
 
-    }
-    for(let rp = 0; rp < removeProjectiles.length; rp++){
-        player.projectiles[removeProjectiles[rp]].removeBody();
-        player.projectiles.splice(removeProjectiles[rp]);
 
-    }
-    //console.log(player.projectiles.length);
 
-    //frame += 1;
-
+    //
 }
 
 
@@ -118,6 +118,7 @@ function moveCamera(){
     render.bounds.min.x = centerX + player.body.bounds.min.x
     render.bounds.max.x = centerX + player.body.bounds.min.x + windowWidth
 
+    Body.set(healthBar.body, "position", {x: player.body.position.x -100, y: healthBar.y});
     Bounds.shift(render.bounds, {
         x: player.body.position.x - centerX,
         y: 0,

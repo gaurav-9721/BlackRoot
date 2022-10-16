@@ -12,7 +12,7 @@ class Player{
         this.allowJump = false;
         this.direction = 1;
         this.health = 10;
-        this.projectiles = [];
+        this.projectiles = new Set();
     }
 
     setProperties(){
@@ -65,7 +65,7 @@ class Player{
     shoot(){
         var projectile = new Projectile();
         projectile.init();
-        this.projectiles.push(projectile);
+        this.projectiles.add(projectile);
     }
 
 
