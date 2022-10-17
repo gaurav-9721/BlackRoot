@@ -13,15 +13,39 @@ class Player{
         this.direction = 1;
         this.health = 10;
         this.projectiles = new Set();
+        this.walkFrame = 0;
+        this.playerIdle = playerIdleImg;
+
+        this.walkPosition = 0;
+        this.playerWalkImgs = [player1Img, player2Img, player3Img, player4Img, player5Img, player6Img, player7Img, player8Img, player9Img, player10Img, player11Img, player12Img]// player13Img,player4Img]
     }
 
     setProperties(){
        // this.body.render.fillStyle = 'yellow';
         let sprite = this.body.render.sprite
-        sprite.texture = playerImg;
-        sprite.xScale = 0.3;
-        sprite.yScale = 0.3;
+        sprite.texture = this.playerIdle;
+        sprite.xScale = 0.4;
+        sprite.yScale = 0.40;
 
+    }
+
+    setIdle(){
+        let sprite = this.body.render.sprite
+        sprite.texture = this.playerIdle;
+        sprite.xScale = 0.5;
+        sprite.yScale = 0.4;
+
+    }
+
+
+
+    setWalkImage(){
+        if (player.direction === 1){
+            if (this.walkFrame % 5 === 0){
+                this.walkPosition  = (this.walkPosition + 1) % this.playerWalkImgs.length
+                this.body.render.sprite.texture = this.playerWalkImgs[this.walkPosition];
+            }
+        }
     }
 
     addBody(){
@@ -32,20 +56,24 @@ class Player{
         let ppos = this.body.position.x ;
         if (this.allowMoveLeft){
             Body.set(this.body, "position", {x: this.body.position.x  - this.speed, y: this.body.position.y});
+
             //Body.set(healthBar.body, "position", {x: ppos - healthBar.body.position.x, y: healthBar.body.position.y});
         }
 
         if (this.allowMoveRight){
             Body.set(this.body, "position", {x: this.body.position.x + this.speed, y: this.body.position.y});
+            this.setWalkImage()
+            this.walkFrame ++;
             //Body.set(healthBar.body, "position", {x: ppos - healthBar.body.position.x, y: healthBar.body.position.y});
         }
+
     }
 
     jump(){
         if (this.allowJump){
             Body.setVelocity(this.body, {
           x: 0,
-          y: -14
+          y: -16
         })
         }
     }

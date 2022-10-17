@@ -100,9 +100,13 @@ document.addEventListener('keyup', function(event){
     if(event.key === 'w') ;
     if(event.key === 'a') {
         player.allowMoveLeft = false;
+
     }
-    //if(event.key === 's') alert('S');
-    if(event.key === 'd') player.allowMoveRight = false;
+
+    if(event.key === 'd'){
+        player.allowMoveRight = false;
+        player.setIdle();
+    }
 } );
 
 
