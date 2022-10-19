@@ -20,7 +20,7 @@ var grounds = [];
 var ground_body = []
 total_grounds = 20;
 for(let i = 0; i<total_grounds; i++){
-    grounds.push(new Ground(i*300));
+    grounds.push(new Ground(i*500));
 }
 for(let i = 0; i<total_grounds; i++){
     grounds[i].init();
@@ -46,36 +46,9 @@ for(let obs = 0; obs < obstaclesXPos.length; obs ++){
 
 function animate(){
     requestAnimationFrame(animate);
-    player.move();
-    player.allowJump = false;
-    for(let i = 0; i<total_grounds; i++){
-        player.allowJump = SAT.collides(player.body, grounds[i].body).collided || player.allowJump;
-    }
-
-
     moveCamera();
+    player.animatePlayer();
 
-
-    for(let obs = 0; obs < obstaclesXPos.length; obs ++){
-        player.allowJump = SAT.collides(player.body, obstacles[obs].body).collided || player.allowJump;
-    }
-
-    // removeProjectiles = []
-    player.projectiles.forEach (function(value) {
-      value.move();
-      value.checkCollisionObstacle();
-
-    })
-    // for(let rp = 0; rp < removeProjectiles.length; rp++){
-    //     if (player.projectiles[removeProjectiles[rp]].frame < 100) player.projectiles[removeProjectiles[rp]].frame += 1;
-    //     else{
-    //         //player.projectiles[removeProjectiles[rp]].removeBody();
-    //         player.projectiles.splice(removeProjectiles[rp]);
-    //     }
-
-
-
-    //
 }
 
 
@@ -87,7 +60,10 @@ document.addEventListener('keydown', function(event){
         player.allowMoveLeft = true;
         player.direction = -1
     }
-    if(event.key === 's') player.shoot();
+    if(event.key === 's') {
+        if (player.allowShoot) player.shoot();
+
+    }
     if(event.key === 'd') {
         player.allowMoveRight = true;
         player.direction = 1;
@@ -97,11 +73,12 @@ document.addEventListener('keydown', function(event){
 } );
 
 document.addEventListener('keyup', function(event){
-    if(event.key === 'w') ;
+    if(event.key === 'w') {}
     if(event.key === 'a') {
         player.allowMoveLeft = false;
 
     }
+    if(event.key === 's') player.allowShoot = true;
 
     if(event.key === 'd'){
         player.allowMoveRight = false;

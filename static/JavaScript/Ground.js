@@ -2,7 +2,7 @@ class Ground{
     constructor(x) {
         this.depth = 50;
         this.y = windowHeight-20;
-        this.width = 300;
+        this.width = 500;
         this.x = x;
         this.height = this.depth;
 
